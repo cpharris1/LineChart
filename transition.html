@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+
+<!-- Load d3.js -->
+<script src="https://d3js.org/d3.v4.js"></script>
+
+<h1>EEG Multi-Channel Raw Plot</h1>
+<p>You can select different channels using the buttons below.</p>
+
+<!-- Add buttons -->
+<!-- TODO: create this dynamically... -->
+<button onclick="update(0)">Fp1</button>
+<button onclick="update(1)">Fpz</button>
+<button onclick="update(2)">Fp2</button>
+<button onclick="update(3)">F7</button>
+<button onclick="update(4)">F3</button>
+<button onclick="update(5)">Fz</button>
+<button onclick="update(6)">F4</button>
+<button onclick="update(7)">F8</button>
+<button onclick="update(8)">FC5</button>
+<button onclick="update(9)">FC1</button>
+<button onclick="update(10)">FC2</button>
+<button onclick="update(11)">FC6</button>
+<button onclick="update(12)">M1</button>
+<button onclick="update(13)">T7</button>
+<button onclick="update(14)">C3</button>
+<button onclick="update(15)">Cz</button>
+<button onclick="update(16)">C4</button>
+<button onclick="update(17)">T8</button>
+<button onclick="update(18)">M2</button>
+<button onclick="update(19)">CP5</button>
+<button onclick="update(20)">CP1</button>
+<button onclick="update(21)">CP2</button>
+<button onclick="update(22)">CP6</button>
+<button onclick="update(23)">P7</button>
+<button onclick="update(24)">P3</button>
+<button onclick="update(25)">Pz</button>
+<button onclick="update(26)">P4</button>
+<button onclick="update(27)">P8</button>
+<button onclick="update(28)">Poz</button>
+<button onclick="update(29)">O1</button>
+<button onclick="update(30)">Oz</button>
+<button onclick="update(31)">O2</button>
+<button onclick="update(32)">VEOG</button>
+<button onclick="update(33)">HEOG</button>
+
+<div id="buttons"></div>
+
+<h2 id="title">Channel Name</h2>
+<div id="line_plot1"></div>
+<script src="transition.js"></script>
