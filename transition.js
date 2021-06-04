@@ -116,6 +116,38 @@ function update_internal(data_idx, allData) {
 			"translate(" + (width/2) + ", 0)")
 }
 
+function generateButtons(channelNames)
+{
+	for(let i=0; i<channelNames.length; i++)
+	{
+		d3.select("#buttons")
+		.append("button")
+		.attr("id", function(d){return 'button-'+i;})
+		.text(channelNames[i])
+		.attr("onclick", "update("+i+")");
+	}
+}
+
+function updateDropdown(channelNames)
+{
+	var i=0;
+	d3.select("#dropdown")
+      .selectAll('myOptions')
+     	.data(channelNames)
+      .enter()
+    	.append('option')
+      .text(function (d) { return d; }) // text showed in the menu
+      .attr("value", function () { return i++; }) // corresponding value
+}
+
+d3.select("#dropdown").on("change", function(d) {
+	// recover the option that has been chosen
+	var selectedOption = d3.select(this).property("value");
+	// run the updateChart function with this selected option
+	//console.log(allData.indexOf(selectedOption));
+	update(selectedOption);
+});
+
 
 var allData=[];
 
@@ -125,9 +157,15 @@ d3.csv("A114_raw_512HZ.csv",
     // Parse out channel names
     var channelNames = d3.keys(data[0]);
 
+		generateButtons(channelNames);
+
+		updateDropdown(channelNames);
+
     allData = getEEGData(channelNames, data);
     
     update_internal(0, allData);
+
+
 
 });
 
